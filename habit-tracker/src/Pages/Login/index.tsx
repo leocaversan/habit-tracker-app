@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import './index.css';
 import Avatar from "../../Componentes/Avatar";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
 
+  const navigator = useNavigate();
   const login = () => {
-    console.log('criado')
+    navigator('/home');
+  };
+  const register = () => {
+    navigator('/register');
   };
   const [user, setLogin] = useState('Usuario');
   const [password, setPassword] = useState('Senha');
-  
+
   return (
     <div className="conteiner__login">
+
       <div className="conteiner__login-avatar">
         <Avatar />
       </div>
@@ -34,7 +40,7 @@ const Login = () => {
           className='conteiner__login-button-login-habit'
           onClick={login}
         >
-          CRIAR USER
+          login
         </button>
       </div>
       <p>OU</p>
@@ -44,16 +50,20 @@ const Login = () => {
           Continuar com o Google
         </p>
       </button>
-
-      <p>Esqueceu a senha</p>
-
-      <p>
-        Não tem uma conta?
-        <button >
-          Cadastre-se
-        </button>
-      </p>
-
+      <div className="conteiner__login-forgot">
+        <p>
+          Esqueceu a senha?
+        </p>
+        <div className="conteiner__login-forgot-button-create">
+          <p>
+            Não tem uma conta?
+          </p>
+          <button 
+          onClick={register}>
+            Cadastre-se
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

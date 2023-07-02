@@ -8,7 +8,7 @@
     width: 100vw;
 }
 .conteiner__login-avatar{
-    margin-top:1rem;
+    /* margin-top:1rem; */
 }
 .conteiner__login-input{
     display: flex;
@@ -37,7 +37,8 @@
     font-size: .9rem;
 }
 .conteiner__login-button {
-    height: 100%;
+    margin-top: 2.3rem;
+    margin-bottom:1.5rem;
     width: 100%;
     display:flex;
     flex-direction: column;
@@ -62,4 +63,29 @@
 }
 .conteiner__login-button-continue-google > p {
     font-size: .9rem;
+}
+.conteiner__login-forgot {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.conteiner__login-forgot > p {
+    margin-top:3rem;
+}
+.conteiner__login-forgot-button-create{
+    margin-top:1.5rem;
+    display:flex;
+    flex-direction: row;
+
+
+}
+.conteiner__login-forgot-button-create > button{
+    background-color: transparent;
+    border: none;
+    color: #2480ed;
+}
+.conteiner__login-forgot-button-create > button:active {
+    background-color: transparent;
+    border: none;
+    color: #a5c4e8;
 }

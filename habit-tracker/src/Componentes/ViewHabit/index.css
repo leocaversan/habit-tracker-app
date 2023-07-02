@@ -1,0 +1,32 @@
+.conteiner__viewHabit{
+    height:100vh;
+    weight:100vh;
+}
+.conteiner__viewHabit-header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.conteiner__viewHabit-body{
+    margin-top:1rem;
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #f020a4;
+}
+.conteiner__viewHabit-body > div{
+    
+}
+.conteiner__viewHabit-body > p{
+    margin-right: 1rem;
+    margin-left: 1rem;
+
+}
+.conteiner__viewHabit-body > div > button{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.conteiner__viewHabit-body > img{
+    
+}
