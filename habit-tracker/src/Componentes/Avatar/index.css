@@ -1,0 +1,13 @@
+.conteiner__avatar{
+    background-color: #d71da2;
+    color: #fff;
+    margin-right: var(--distance-icons);
+    height:3rem;
+    width: 3rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    font-size: 1.5rem;
+}
