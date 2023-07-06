@@ -41,7 +41,7 @@ const CreateHabit = () => {
                             <p>Horario do Habito</p>
                         </div>
                         <div>
-                            <input type="text" />
+                            <input type="time" />
                         </div>
                         <div>
                             <img
@@ -51,7 +51,7 @@ const CreateHabit = () => {
                             <p>Periodicidade o habito</p>
                         </div>
                         <div>
-                            <input type="text" />
+                            <input type="date" />
                         </div>
                     
                     </div>

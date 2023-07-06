@@ -50,7 +50,7 @@ const Home = () => {
             </div>
             <div className="conteiner__home-vertical-line"></div>
             <div className="conteiner__home-right">
-                <ViewHabit/>
+                <CreateHabit/>
             </div>
         </div>
     )

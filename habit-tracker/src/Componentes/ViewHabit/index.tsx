@@ -67,7 +67,6 @@ const ViewHabit = () => {
                     </div>
                 )
                 }
-
                 {spanVisibleDelete && (
                     <div className="conteiner__viewHabit-ocult_span">
                         <div className="conteiner__viewHabit-ocult_span-button">
