@@ -2,17 +2,43 @@ import React, { useState } from "react";
 import './index.css';
 import Avatar from "../../Componentes/Avatar";
 import { useNavigate } from "react-router-dom";
+
+import axios from 'axios';
+
+
 const Login = () => {
 
+
+  const verifyLogin = async () => {
+
+    await axios.request({
+      method: 'POST',
+      url: 'http://localhost:4000/sessions',
+      data: {
+        "username": user,
+        "password": password,
+      }
+    }).then(response => {
+      if (response.status === 200) {
+        navigator('/home');
+        console.log(response.data.token);
+      } else if (response.status !== 200) {
+        console.log('userInvalid');
+      }
+    }).catch(error => {
+      setSpanUserInvalidVisible(true)
+      console.log(error);
+    })
+  }
+
   const navigator = useNavigate();
-  const login = () => {
-    navigator('/home');
-  };
+
   const register = () => {
     navigator('/register');
   };
-  const [user, setLogin] = useState('Usuario');
-  const [password, setPassword] = useState('Senha');
+  const [spanVisibleIUserInvalid, setSpanUserInvalidVisible] = useState(false);
+  const [user, setLogin] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <div className="conteiner__login">
@@ -38,10 +64,20 @@ const Login = () => {
       <div className="conteiner__login-button">
         <button
           className='conteiner__login-button-login-habit'
-          onClick={login}
+          onClick={verifyLogin}
         >
           login
         </button>
+
+        {spanVisibleIUserInvalid &&
+          (
+            <span onClick={() => setSpanUserInvalidVisible(false)} className="conteiner__login-button-login-habit-invalid">
+              Usuário ou senha inválidos
+            </span>
+          )}
+
+
+
       </div>
       <p>OU</p>
       <button className='conteiner__login-button-continue-google'>
@@ -58,13 +94,16 @@ const Login = () => {
           <p>
             Não tem uma conta?
           </p>
-          <button 
-          onClick={register}>
+          <button
+            onClick={register}>
             Cadastre-se
           </button>
         </div>
       </div>
+
     </div>
+
+
   );
 };
 export default Login;

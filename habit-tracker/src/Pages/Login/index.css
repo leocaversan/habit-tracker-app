@@ -89,3 +89,18 @@
     border: none;
     color: #a5c4e8;
 }
+.conteiner__login-button-login-habit-invalid{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    background-color: #d71da2;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+
+    position:absolute;
+    align-itens: center;
+    justify-content: center;
+    border-radius:.7rem;
+}

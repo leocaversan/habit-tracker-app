@@ -3,15 +3,36 @@ import Avatar from '../../Componentes/Avatar';
 import './index.css';
 import { useNavigate } from "react-router-dom";
 
+import axios from 'axios';
 
 const Register = () => {
+
+    const createdUser = async () => {
+
+        await axios.request({
+          method: 'POST',
+          url: 'http://localhost:4000/users',
+          data: {
+            "username": user,
+            "password": password,
+          }
+        }).then(response => {
+          if (response.data.username != null) {
+            navigator('/login'); 
+            console.log(response);
+          } else {
+            console.log(response);
+          }
+        }).catch(error => {
+          console.log(error);
+        })
+      } 
+
     const [user, setLogin] = useState('Usuario');
     const [email, setEmail] = useState('Email');
     const [password, setPassword] = useState('Senha');
     const navigator = useNavigate();
-    const createdUser = () => {
-        navigator('/login');
-    }
+
     return (
         <div className='conteiner__register'>
             <div className='conteiner__register-avatar'>
