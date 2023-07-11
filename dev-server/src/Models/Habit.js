@@ -13,17 +13,17 @@ const habitSchema = mongoose.Schema(
             type:String,
             required:true,
             index: {
-                unique: true
+                unique: false
             }
         },
         userId:{
             type:String,
             required:true,
         }
-
         
     },{
         timestamps:true,
+        id:true,
     }
 );
 

@@ -4,6 +4,10 @@ import UserController from "./controllers/UserController.js";
 import auth from "./middlewares/auth.js";
 import SessionController from "./controllers/SessionController.js";
 
+import HabitController from "./controllers/HabitController.js";
+
+
+
 
 
 
@@ -20,6 +24,12 @@ routes.post('/users', UserController.create);
 routes.post('/usersValidate', UserController.login);
 routes.put('/users/:id', UserController.update);
 routes.delete('/users/:id', UserController.destroy);
+
+
+// routes habits
+
+routes.post('/createHabit', HabitController.createHabit);
+routes.post('/getHabits', HabitController.getHabitsByUser);
 
 
 

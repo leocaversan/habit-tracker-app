@@ -73,7 +73,7 @@ class UsersController {
                 password: encryptedPassword,
             });
 
-            await User.updateMany({ username: null }, { $set: { userName: 'valor_unico_aqui' } });
+            // await User.updateMany({ username: null }, { $set: { userName: 'valor_unico_aqui' } });
             try {
                 newUser.save();
                 console.log(newUser);

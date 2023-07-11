@@ -16,13 +16,6 @@ const userSchema = mongoose.Schema(
                 unique: false
             }
         },
-        // _id:{
-        //     type:String,
-        //     required:true,
-        //     index: {
-        //         unique: true
-        //     }
-        // }
         
     },{
         timestamps:true,
