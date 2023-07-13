@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 
+import { createdHabit } from '../../services/api';
+
 const CreateHabit = () => {
-    const backPageClick = () => {
-        window.history.back();
+
+
+    const [habit, setHabit] = useState('');
+    const [time, setTime] = useState('');
+    const [date, setDate] = useState('');
+
+    const userId = "leo"
+    const created = async () => {
+        await createdHabit(habit, time, userId)
     }
+
+
     return (
         <div className='conteiner__createHabit'>
-            <div className='conteiner__createHabit-button-back'>
-                <button onClick={
-                    backPageClick
-                }>
-                    <img
-                        src="https://images.vexels.com/media/users/3/189738/isolated/preview/e531a6d28931f7c224be0c595c5f5cf1-seta-para-a-esquerda-do-graffiti.png"
-                        alt="voltar"
-                    />
-                </button>
-            </div>
+
             <div className='conteiner__createHabit-description'>
                 Criando seu habito
             </div>
@@ -31,7 +33,11 @@ const CreateHabit = () => {
                             <p>nome do habito</p>
                         </div>
                         <div>
-                            <input type="text" />
+                            <input
+                                type="text"
+                                value={habit}
+                                onChange={(e) => setHabit(e.target.value)}
+                            />
                         </div>
                         <div>
                             <img
@@ -41,7 +47,11 @@ const CreateHabit = () => {
                             <p>Horario do Habito</p>
                         </div>
                         <div>
-                            <input type="time" />
+                            <input
+                                type="text"
+                                value={time}
+                                onChange={(e) => setTime(e.target.value)}
+                            />
                         </div>
                         <div>
                             <img
@@ -51,14 +61,23 @@ const CreateHabit = () => {
                             <p>Periodicidade o habito</p>
                         </div>
                         <div>
-                            <input type="date" />
+                            <input
+                                type="text"
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
+                            />
                         </div>
-                    
+
                     </div>
                 </div>
                 <div className='conteiner__createHabit-button-create'>
-                    <button>
-                        Criar
+                    <button onClick={() => {
+                        created()
+                        setDate('')
+                        setHabit('')
+                        setTime('')
+                        }}>
+                        Created
                     </button>
                 </div>
             </div>

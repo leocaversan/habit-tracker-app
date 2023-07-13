@@ -30,6 +30,8 @@ routes.delete('/users/:id', UserController.destroy);
 
 routes.post('/createHabit', HabitController.createHabit);
 routes.post('/getHabits', HabitController.getHabitsByUser);
+routes.get('/getAllHabits', HabitController.getAllHabits);
+routes.post('/deleteHabit', HabitController.deleteHabit);
 
 
 

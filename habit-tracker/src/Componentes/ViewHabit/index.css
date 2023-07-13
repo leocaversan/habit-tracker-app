@@ -16,7 +16,7 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-    background-color: #f020a4;
+    background-color: #f7b4e4;
 }
 .conteiner__viewHabit-body > div{
     
@@ -32,17 +32,17 @@
     border:none;
     background-color:transparent;
 }
-.conteiner__viewHabit-body > img{
-    height: 2rem;
-    width: 2rem;
+.conteiner__viewHabit-body > div > button > img{
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 0.5rem;;
 }
 .conteiner__viewHabit-ocult_span{
     height:18rem;
     width:20rem;
-    background-color: #f020a4;
+    background-color: #f7b4e4;
     position:absolute;
-    top: -3rem;
-    right: 6rem;
+    align-items:center;
     border-radius:.7rem;
     display:flex;
     justify-content: center;

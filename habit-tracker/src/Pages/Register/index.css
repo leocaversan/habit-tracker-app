@@ -80,4 +80,17 @@
 .conteiner__register-button-continue-google > p {
     font-size: .9rem;
 }
+.invalidPassword{
+    position: absolute;
+    top: 38%;
+    background-color: #d71da2;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius:1.2rem;
+    font-size: 1.2rem;
+}
+.invalidPassword :active{
+    top: 50%;
+    
+}
 

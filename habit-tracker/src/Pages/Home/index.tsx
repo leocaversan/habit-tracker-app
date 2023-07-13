@@ -5,7 +5,9 @@ import CreateHabit from "../../Componentes/CreateHabit";
 import ViewHabit from "../../Componentes/ViewHabit";
 
 const Home = () => {
-
+    const backPageClick = () => {
+        window.history.back();
+    }
     const [viewHabit, setViewHabitVisible] = useState(true);
     const [notification, setnotificationVisible] = useState(false);
     const [createdHabit, setcreatedHabitVisible] = useState(false);
@@ -79,6 +81,16 @@ const Home = () => {
             </div>
             <div className="conteiner__home-vertical-line"></div>
             <div className="conteiner__home-right">
+            <div className='conteiner__createHabit-button-back'>
+                <button onClick={
+                    backPageClick
+                }>
+                    <img
+                        src="https://images.vexels.com/media/users/3/189738/isolated/preview/e531a6d28931f7c224be0c595c5f5cf1-seta-para-a-esquerda-do-graffiti.png"
+                        alt="voltar"
+                    />
+                </button>
+            </div>
                 {viewHabit &&
                     (
                         <ViewHabit />
