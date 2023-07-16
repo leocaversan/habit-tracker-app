@@ -2,21 +2,11 @@ import React, { useEffect, useState } from "react";
 import './index.css'
 
 import { getHabits, deleteHabit } from "../../services/api";
-
-interface habitSchema {
-    habit: string,
-    frequenciaHabit: string,
-    userId: string,
-    id: string,
-}
+import { habitSchema, propsUser } from "../../Props/props";
 
 
+const ViewHabit = ({userId}:propsUser) => {
 
-
-const ViewHabit = () => {
-
-
-    const userId = "leo";
 
     const [data, setData] = useState<habitSchema[]>([]);
     const fetchData = async () => {

@@ -4,7 +4,11 @@ import Notifications from "../../Componentes/Notifications";
 import CreateHabit from "../../Componentes/CreateHabit";
 import ViewHabit from "../../Componentes/ViewHabit";
 
+import { useUserContext } from '../../contexts/auth';
+
 const Home = () => {
+
+    const { user } = useUserContext();
     const backPageClick = () => {
         window.history.back();
     }
@@ -93,7 +97,7 @@ const Home = () => {
             </div>
                 {viewHabit &&
                     (
-                        <ViewHabit />
+                        <ViewHabit userId={user?.user.username} />
                     )
                 }
                 {notification &&
@@ -103,7 +107,7 @@ const Home = () => {
                 }
                 {createdHabit &&
                     (
-                        <CreateHabit />
+                        <CreateHabit userId={user?.user.username} />
                     )
                 }
             </div>

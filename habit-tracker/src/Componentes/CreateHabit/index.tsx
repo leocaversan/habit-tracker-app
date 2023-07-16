@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import './index.css';
 
 import { createdHabit } from '../../services/api';
+import { propsUser } from '../../Props/props';
 
-const CreateHabit = () => {
+
+const CreateHabit = ({userId}:propsUser) =>  {
 
 
     const [habit, setHabit] = useState('');
     const [time, setTime] = useState('');
     const [date, setDate] = useState('');
 
-    const userId = "leo"
+
     const created = async () => {
         await createdHabit(habit, time, userId)
     }

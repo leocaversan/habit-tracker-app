@@ -1,43 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import './index.css';
 import Avatar from "../../Componentes/Avatar";
 import { useNavigate } from "react-router-dom";
 
-import axios from 'axios';
+// import { AuthContext } from "../../contexts/auth";
+import { validUser } from "../../services/api";
+import { useUserContext } from '../../contexts/auth';
+
+interface UserValidate {
+  "user": {
+    "id": string,
+    "username": string,
+  },
+  "token": string,
+}
 
 
 const Login = () => {
 
-
-  const verifyLogin = async () => {
-
-    await axios.request({
-      method: 'POST',
-      url: 'http://localhost:4000/sessions',
-      data: {
-        "username": user,
-        "password": password,
-      }
-    }).then(response => {
-      if (response.status === 200) {
-        navigator('/home');
-        console.log(response.data.token);
-      } else if (response.status !== 200) {
-        console.log('userInvalid');
-      }
-    }).catch(error => {
-      setSpanUserInvalidVisible(true)
-      console.log(error);
-    })
-  }
-
   const navigator = useNavigate();
+
+  const [userValidate, setUserValidate] = useState<UserValidate>()
+
+  // const contextData = useContext(AuthContext);
+  const { user, login } = useUserContext();
+  const verifyLogin = async () => {
+    
+    const userData = await validUser(username, password);
+    if (userData != null) {
+      
+      setUserValidate(userData)
+      login(userData);
+      // contextData?.updateContext(userValidate);
+      navigator('/home');
+
+    } else {
+      setSpanUserInvalidVisible(true)
+    }
+  }
+  
+  // const contextData = useContext(userValidate);
+  // console.log(contextData);
 
   const register = () => {
     navigator('/register');
   };
+
   const [spanVisibleIUserInvalid, setSpanUserInvalidVisible] = useState(false);
-  const [user, setLogin] = useState('');
+  const [username, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
   return (
@@ -50,7 +60,7 @@ const Login = () => {
       <div className='conteiner__login-input'>
         <input
           type="text"
-          value={user}
+          value={username}
           onChange={(e) => setLogin(e.target.value)}
         />
       </div>

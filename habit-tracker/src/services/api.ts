@@ -7,15 +7,43 @@ interface habitSchema {
     id: string,
 }
 
+interface UserValidate {
+    "user": {
+        "id": string,
+        "username": string,
+    },
+    "token": string,
+}
+interface UserSchema {
+    user: UserValidate,
+    valid: boolean,
+}
+
 export const api = axios.create({
     baseURL: 'http://localhost:4000'
 })
 
 export const validUser = async (username: string, password: string) => {
-    let url = '/sessions';
+    try {
+        const response = await axios.request({
+            method: 'POST',
+            url: 'http://localhost:4000/sessions',
+            data: {
+                "username": username,
+                "password": password,
+            }
+        })
+        if (response.status === 200) {
+            return response.data;
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.error(error)
+    }
 }
 
-export const getHabits = async (userId: string) => {
+export const getHabits = async (userId: string | null) => {
     const url = `/getHabits`;
     try {
         const response = await axios.request<habitSchema[]>({
@@ -31,7 +59,7 @@ export const getHabits = async (userId: string) => {
 
     }
 }
-export const deleteHabit = async (userId: string, habit:string) => {
+export const deleteHabit = async (userId: string | null, habit: string) => {
     const url = `/deleteHabit`;
     try {
         const response = await axios.request<habitSchema[]>({
@@ -42,8 +70,7 @@ export const deleteHabit = async (userId: string, habit:string) => {
                 habit: habit,
             },
         });
-        if (response.status===200){
-            console.log("deletado")
+        if (response.status === 200) {
             return response.data;
         }
     } catch (error) {
@@ -54,23 +81,23 @@ export const deleteHabit = async (userId: string, habit:string) => {
 
 export const createdHabit = async (habit: string, frequenciaHabit: string, userId: string) => {
     const url = `/createHabit`;
-    try{
+    try {
         const data = await axios.request<habitSchema[]>({
             method: 'POST',
             url: `http://localhost:4000${url}`,
-            data:{
+            data: {
                 "habit": habit,
-                "frequenciaHabit":frequenciaHabit,
+                "frequenciaHabit": frequenciaHabit,
                 "userId": userId,
             }
         })
-        if (data.status === 201){
+        if (data.status === 201) {
             return true;
         }
         else {
             return false;
         }
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
@@ -86,7 +113,7 @@ export const createdUser = async (username: string, password: string) => {
                 "password": password,
             }
         })
-        if (data.status === 201){
+        if (data.status === 201) {
             return true;
         }
         return false;
