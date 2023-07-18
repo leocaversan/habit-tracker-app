@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserContext, { User, UserContextType } from './auth';
 
 interface UserProviderProps {
@@ -6,22 +6,27 @@ interface UserProviderProps {
 }
 
 const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
+    
     const [user, setUser] = useState<User | null>(null);
-
+    const [authenticated, setAuthenticated] = useState<boolean>(false);
+    
     const login = (userData: User) => {
-        // Lógica para autenticar o usuário
         setUser(userData);
+        localStorage.setItem('user', JSON.stringify(userData))
+        setAuthenticated(true);
     };
 
-    // const logout = () => {
-    //     // Lógica para fazer logout do usuário
-    //     setUser(null);
-    // };
+    const logout = () => {
+        setUser(null);
+        localStorage.removeItem('user');
+        setAuthenticated(false);
+    };
 
     const userContextValue: UserContextType = {
+        authenticated,
         user,
         login,
-        // logout
+        logout
     };
 
     return (

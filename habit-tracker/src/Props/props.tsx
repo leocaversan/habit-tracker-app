@@ -8,3 +8,11 @@ export interface habitSchema {
     userId: string,
     id: string,
 }
+
+export interface UserValidate {
+    "user": {
+      "id": string,
+      "username": string,
+    },
+    "token": string,
+  }

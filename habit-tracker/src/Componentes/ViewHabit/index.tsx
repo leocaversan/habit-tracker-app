@@ -3,13 +3,22 @@ import './index.css'
 
 import { getHabits, deleteHabit } from "../../services/api";
 import { habitSchema, propsUser } from "../../Props/props";
+import { User, useUserContext } from "../../contexts/auth";
+
 
 
 const ViewHabit = ({userId}:propsUser) => {
 
 
+    const [userMemory, setUserMemory] = useState<User | null>(null);;
     const [data, setData] = useState<habitSchema[]>([]);
     const fetchData = async () => {
+        const savedUser = localStorage.getItem('user');
+        if (savedUser) {
+            setUserMemory(JSON.parse(savedUser));
+            console.log(userMemory);
+        }
+        console.log(userMemory);
         const receivedData = await getHabits(userId);
         setData(receivedData as unknown as habitSchema[]);
     };

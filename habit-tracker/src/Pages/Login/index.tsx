@@ -6,15 +6,7 @@ import { useNavigate } from "react-router-dom";
 // import { AuthContext } from "../../contexts/auth";
 import { validUser } from "../../services/api";
 import { useUserContext } from '../../contexts/auth';
-
-interface UserValidate {
-  "user": {
-    "id": string,
-    "username": string,
-  },
-  "token": string,
-}
-
+import { UserValidate } from "../../Props/props";
 
 const Login = () => {
 
@@ -31,7 +23,6 @@ const Login = () => {
       
       setUserValidate(userData)
       login(userData);
-      // contextData?.updateContext(userValidate);
       navigator('/home');
 
     } else {
