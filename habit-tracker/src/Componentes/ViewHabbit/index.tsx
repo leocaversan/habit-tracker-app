@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import './index.css'
+import { useEffect, useState } from "react";
+import style from "./ViewHabbit.module.css";
 
 import { getHabits, deleteHabit } from "../../services/api";
 import { habitSchema, propsUser } from "../../Props/props";
-import { User, useUserContext } from "../../contexts/auth";
+import { User } from "../../contexts/auth";
 
 
 
-const ViewHabit = ({userId}:propsUser) => {
+const ViewHabit = ({ userId }: propsUser) => {
 
 
     const [userMemory, setUserMemory] = useState<User | null>(null);;
@@ -18,7 +18,6 @@ const ViewHabit = ({userId}:propsUser) => {
             setUserMemory(JSON.parse(savedUser));
             console.log(userMemory);
         }
-        console.log(userMemory);
         const receivedData = await getHabits(userId);
         setData(receivedData as unknown as habitSchema[]);
     };
@@ -36,48 +35,39 @@ const ViewHabit = ({userId}:propsUser) => {
     const [selectedItemDelete, setSelectedItemDelete] = useState<number | null>(null);
 
     return (
-        <div className="conteiner__viewHabit">
-            <div className="conteiner__viewHabit-header">
+
+        <div className={style.conteiner__viewHabit}>
+            <div className={style.conteiner__viewHabit_header}>
                 <h1>
                     Habitos
                 </h1>
-
             </div>
             {
                 data.map((data, index) => (
-                    <div className="conteiner__viewHabit-body" key={index}>
+                    <span className={style.conteiner__viewHabit_body} key={index}>
                         <p>
                             Habito : {data.habit}
                         </p>
                         <div>
-                            <button
-                                onClick={() => {
-                                    setSelectedItemView(index);
-                                    console.log(selectedItemView);
-                                }}>
-                                <img src="https://www.pngfind.com/pngs/m/692-6921642_transparent-books-drawing-png-books-drawing-png-download.png" alt="view" />
-                            </button>
-                            <button>
-                                <img src="https://www.pngmart.com/files/22/Writing-Art-PNG-File.png" alt="edit" />
-                            </button>
-                            <button onClick={() => {
-                                setSelectedItemDelete(index);
-                            }}>
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYH3lp1iAHIiNZrKeAiq-_HsbvrG7bUuKv_Q&usqp=CAU" alt="delete" />
-                            </button>
+                            <img 
+                                src="https://www.pngfind.com/pngs/m/692-6921642_transparent-books-drawing-png-books-drawing-png-download.png" 
+                                alt="view" 
+                                onClick={() => { setSelectedItemView(index) }} />
+                            <img 
+                                src="https://www.pngmart.com/files/22/Writing-Art-PNG-File.png" 
+                                alt="edit" />
+                            <img 
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYH3lp1iAHIiNZrKeAiq-_HsbvrG7bUuKv_Q&usqp=CAU" 
+                                alt="delete" 
+                                onClick={() => { setSelectedItemDelete(index) }} />
                         </div>
-                    </div>
+                    </span>
                 ))
             }
             {selectedItemView !== null && (
-                <div className="conteiner__viewHabit-ocult_span"
-                    onClick={() => {
-                        setSelectedItemView(null);
-                        console.log(selectedItemView);
-
-                    }}
-                >
-                    <div className="conteiner__viewHabit-ocult-span-insideSpan">
+                <span className={style.conteiner__viewHabit_ocult_span}
+                    onClick={() => { setSelectedItemView(null) }} >
+                    <div className={style.conteiner__viewHabit_ocult_span_insideSpan} >
                         <p>
                             Habito: {data[selectedItemView].habit}
                         </p>
@@ -101,43 +91,34 @@ const ViewHabit = ({userId}:propsUser) => {
                             Seg
                         </button>
                     </div>
-                </div>
+                </span>
             )
             }
             {selectedItemDelete !== null && (
-                <div className="conteiner__viewHabit-ocult_span" onClick={() => {
-                    setSelectedItemDelete(null);
-                    console.log(selectedItemDelete)
-                }
+                <span className={style.conteiner__viewHabit_ocult_span} 
+                    onClick={() => {
+                    setSelectedItemDelete(null) }
                 }>
-                    <div className="conteiner__viewHabit-ocult_span-button">
+                    <div className={style.conteiner__viewHabit_ocult_span_button}>
                         <h1>
                             Deseja excluir esse habito?
                         </h1>
-                        <div className="conteiner__viewHabit-ocult_span-buttons">
+                        <div className={style.conteiner__viewHabit_ocult_span_buttons}>
                             <button onClick={() => {
                                 deleteData(data[selectedItemDelete].habit);
-                                console.log(data[selectedItemDelete].habit)
-                                setSelectedItemDelete(null);
-                            }
-                            }>
+                                setSelectedItemDelete(null); }}>
                                 Sim
                             </button>
-                            <button >
+                            <button>
                                 Não
                             </button>
                         </div>
                     </div>
-                </div>
+                </span>
             )}
-
         </div>
 
     );
 };
 
 export default ViewHabit;
-
-function fetchData() {
-    throw new Error("Function not implemented.");
-}

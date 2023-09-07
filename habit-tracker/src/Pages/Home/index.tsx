@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import './index.css'
+import { useEffect, useState } from "react";
+import style from "./Home.module.css";
 import Notifications from "../../Componentes/Notifications";
-import CreateHabit from "../../Componentes/CreateHabit";
-import ViewHabit from "../../Componentes/ViewHabit";
+import CreateHabit from "../../Componentes/CreateHabbit";
+import ViewHabit from "../../Componentes/ViewHabbit";
 
 import { useUserContext } from '../../contexts/auth';
-import Login from "../Login";
 
 
 const Home = () => {
@@ -19,13 +18,7 @@ const Home = () => {
         else {
             window.location.href = '/login';
         }
-
     }, []);
-
-    const backPageClick = () => {
-        logout();
-        window.history.back();
-    }
 
     const { user, logout } = useUserContext();
     const [viewHabit, setViewHabitVisible] = useState(true);
@@ -33,92 +26,94 @@ const Home = () => {
     const [createdHabit, setcreatedHabitVisible] = useState(false);
     const [userMemory, setUserMemory] = useState(user);
 
+    const backPageClick = () => {
+        logout();
+        window.history.back();
+    }
+
     return (
-        <div className="conteiner__home">
-            <div className="conteiner__home-left">
-                <div className="conteiner__home-left-options">
+        <div className={style.conteiner__home}>
+            <div className={style.conteiner__home_left}>
+                <div className={style.conteiner__home_left_options}>
                     <button
                         onClick={
                             () => {
                                 setViewHabitVisible(true)
                                 setnotificationVisible(false)
                                 setcreatedHabitVisible(false)
-                            }
-                        }
-                    >
+                            }}>
                         <p>
                             Habit Tracker
                         </p>
                     </button>
                 </div>
-                <div className="conteiner__home-left-options">
+                <div className={style.conteiner__home_left_options}>
                     <button
                         onClick={
                             () => {
                                 setViewHabitVisible(false)
                                 setnotificationVisible(true)
                                 setcreatedHabitVisible(true)
-                            }
-                        }
-                    >
-                        <img src="" alt="" />
+                            }}>
+                        <img
+                            src=""
+                            alt="" />
                         <p>
                             Notificacoes
                         </p>
                     </button>
                 </div>
-                <div className="conteiner__home-left-options">
+                <div className={style.conteiner__home_left_options}>
                     <button
                         onClick={
                             () => {
                                 setViewHabitVisible(false)
                                 setnotificationVisible(false)
                                 setcreatedHabitVisible(true)
-                            }
-                        }
-                    >
-                        <img src="" alt="" />
+                            }}>
+                        <img
+                            src=""
+                            alt="" />
                         <p>
-                            Criar Habito
+                            Created Habbit
                         </p>
                     </button>
                 </div>
-                <div className="conteiner__home-left-options">
+                <div className={style.conteiner__home_left_options}>
                     <button>
-                        <img src="" alt="" />
+                        <img
+                            src=""
+                            alt="" />
                         <p>
                             Perfil
                         </p>
                     </button>
                 </div>
-                <div className="conteiner__home-left-options">
+                <div className={style.conteiner__home_left_options}>
                     <button
-                        onClick={
-                            backPageClick
-                        }
-                    >
-                        <img src="" alt="" />
+                        onClick={backPageClick}>
+                        <img
+                            src=""
+                            alt="" />
                         <p>
                             Sair
                         </p>
                     </button>
                 </div>
             </div>
-            <div className="conteiner__home-vertical-line"></div>
-            <div className="conteiner__home-right">
-                <div className='conteiner__createHabit-button-back'>
-                    <button onClick={
-                        backPageClick
-                    }>
+            <div className={style.conteiner__home_vertical_line}></div>
+            <div className={style.conteiner__home_right}>
+                <div className={style.conteiner__createHabit_button_back}>
+                        
                         <img
                             src="https://images.vexels.com/media/users/3/189738/isolated/preview/e531a6d28931f7c224be0c595c5f5cf1-seta-para-a-esquerda-do-graffiti.png"
-                            alt="voltar"
-                        />
-                    </button>
+                            alt="voltar" 
+                            onClick={backPageClick} />
                 </div>
                 {viewHabit &&
                     (
-                        <ViewHabit userId={userMemory?.user.username} />
+                        <ViewHabit
+                            userId={userMemory?.user.username} />
                     )
                 }
                 {notification &&
@@ -128,7 +123,8 @@ const Home = () => {
                 }
                 {createdHabit &&
                     (
-                        <CreateHabit userId={userMemory?.user.username} />
+                        <CreateHabit
+                            userId={userMemory?.user.username} />
                     )
                 }
             </div>

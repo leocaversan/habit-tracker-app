@@ -4,8 +4,6 @@ import './index.css';
 import { useNavigate } from "react-router-dom";
 import { createdUser } from '../../services/api';
 
-import axios from 'axios';
-
 const Register = () => {
 
     const validatedCrestedUser = async () => {
@@ -17,11 +15,21 @@ const Register = () => {
         }
     }
 
-
+    const handlerClickLogin = () => {
+        if (isFirstClickLogin) {
+            setLogin('');
+            setIsFirstClickLogin(false);
+        }
+    }
+    
     const [user, setLogin] = useState('Usuario');
     const [email, setEmail] = useState('Email');
     const [password, setPassword] = useState('Senha');
     const [invalidPassword, setInvalidPassword] = useState(false);
+    const [isFirstClickLogin, setIsFirstClickLogin] = useState(true);
+    const [isFirstClickMail, setIsFirstClickMail] = useState(true);
+    const [isFirstClickPassword, setIsFirstClickPassword] = useState(true);
+
     const navigator = useNavigate();
 
     return (
@@ -41,6 +49,12 @@ const Register = () => {
                 <div className='conteiner__register-input'>
                     <input
                         type="text"
+                        onClick={() => {
+                            if (isFirstClickLogin) {
+                                setLogin('');
+                                handlerClickLogin();
+                            }
+                        }}
                         value={user}
                         onChange={(e) => setLogin(e.target.value)}
                     />
@@ -49,6 +63,12 @@ const Register = () => {
                     <input
                         type="text"
                         value={email}
+                        onClick={() => {
+                            if (isFirstClickMail) {
+                                setEmail('');
+                                setIsFirstClickMail(false);
+                            }
+                        }}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
@@ -56,6 +76,13 @@ const Register = () => {
                     <input
                         type="text"
                         value={password}
+                        onClick={() => {
+
+                            if (isFirstClickPassword) {
+                                setPassword('');
+                                setIsFirstClickPassword(false);
+                            }
+                        }}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
@@ -78,15 +105,12 @@ const Register = () => {
             </div>
 
             {invalidPassword && (
-                <div className='invalidPassword' onClick={()=>setInvalidPassword(false)}>
+                <div className='invalidPassword' onClick={() => setInvalidPassword(false)}>
                     <h1>
                         User exists
                     </h1>
                 </div>
             )}
-
-
-
         </div>
     )
 }

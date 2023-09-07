@@ -7,24 +7,27 @@
     height: 100vh;
     width: 100vw;
 }
-.conteiner__login-avatar{
-    /* margin-top:1rem; */
+.conteiner__login > h1 {
+    display: flex;
+    margin-top:1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
-.conteiner__login-input{
+.conteiner__login_input{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width:100%;
 }
-.conteiner__login-input > input{
+.conteiner__login_input > input{
     margin-top: 1rem;
     height: 2rem;
     width: 80%;
     border:none;
     border-radius: .9rem;
 }
-.conteiner__login-button-login-habit{
+.conteiner__login_button_login_habit{
     height: 2.5rem;
     width: 80%;
     border:none;
@@ -36,7 +39,7 @@
     align-items: center;
     font-size: .9rem;
 }
-.conteiner__login-button {
+.conteiner__login_button {
     margin-top: 2.3rem;
     margin-bottom:1.5rem;
     width: 100%;
@@ -45,7 +48,7 @@
     justify-content: center;
     align-items: center;
 }
-.conteiner__login-button-continue-google {
+.conteiner__login_button_continue_google {
     margin-top: 1.5rem;
     height: 2.5rem;
     width: 80%;
@@ -57,39 +60,39 @@
     align-items: center;
     justify-content: center;
 }
-.conteiner__login-button-continue-google > img {
+.conteiner__login_button_continue_google > img {
     margin-right:2rem;
     height: 1.9rem;
 }
-.conteiner__login-button-continue-google > p {
+.conteiner__login_button_continue_google > p {
     font-size: .9rem;
 }
-.conteiner__login-forgot {
+.conteiner__login_forgot {
     display: flex;
     flex-direction: column;
     align-items: center
 }
-.conteiner__login-forgot > p {
+.conteiner__login_forgot > p {
     margin-top:3rem;
 }
-.conteiner__login-forgot-button-create{
+.conteiner__login_forgot_button_create{
     margin-top:1.5rem;
     display:flex;
     flex-direction: row;
 
 
 }
-.conteiner__login-forgot-button-create > button{
+.conteiner__login_forgot_button_create > button{
     background-color: transparent;
     border: none;
     color: #2480ed;
 }
-.conteiner__login-forgot-button-create > button:active {
+.conteiner__login_forgot_button_create > button:active {
     background-color: transparent;
     border: none;
     color: #a5c4e8;
 }
-.conteiner__login-button-login-habit-invalid{
+.conteiner__login_button_login_habit_invalid{
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-right: 2rem;
@@ -98,7 +101,7 @@
     color: #fff;
     font-weight: bold;
     font-size: 1.5rem;
-
+    
     position:absolute;
     align-itens: center;
     justify-content: center;

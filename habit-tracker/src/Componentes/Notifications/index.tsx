@@ -1,19 +1,19 @@
 import React from "react";
-import './index.css';
+import style from "./Notifications.module.css";
 
 const Notifications = () => {
     return (
-        <div className="conteiner__notifications">
-            <div className="conteiner__notifications-options">
+        <div className={style.conteiner__notifications}>
+            <div className={style.conteiner__notifications_options}>
                 <h1>
                     Notificacoes
                 </h1>
             </div>
-            <div className="conteiner__notifications-content">
-                <div className="conteiner__notifications-header">
+            <div className={style.conteiner__notifications_content}>
+                <div className={style.conteiner__notifications_header}>
                     <h1>Hoje</h1>
                 </div>
-                <div className="conteiner__notifications-body">
+                <div className={style.conteiner__notifications_body}>
                     <li>
                         Andar de bicicleta
                     </li>

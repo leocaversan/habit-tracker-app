@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './index.css';
+import style from "./CreateHabbit.module.css";
 
 import { createdHabit } from '../../services/api';
 import { propsUser } from '../../Props/props';
@@ -7,26 +7,23 @@ import { propsUser } from '../../Props/props';
 
 const CreateHabit = ({userId}:propsUser) =>  {
 
-
     const [habit, setHabit] = useState('');
     const [time, setTime] = useState('');
     const [date, setDate] = useState('');
-
 
     const created = async () => {
         await createdHabit(habit, time, userId)
     }
 
-
     return (
-        <div className='conteiner__createHabit'>
+        <div className={style.conteiner__createHabit}>
 
-            <div className='conteiner__createHabit-description'>
-                Criando seu habito
+            <div className={style.conteiner__createHabit_description}>
+                Created your habbit
             </div>
-            <div className='conteiner__createHabit-body'>
-                <div className='conteiner__createHabit-content-input'>
-                    <div className='conteiner__createHabit-input-conteiner'>
+            <div className={style.conteiner__createHabit_body}>
+                <div className={style.conteiner__createHabit_content_input}>
+                    <div className={style.conteiner__createHabit_input_conteiner}>
                         <div>
                             <img
                                 src="https://w7.pngwing.com/pngs/123/562/png-transparent-drawing-computer-icons-pencil-pencil-angle-pencil-public-relations.png"
@@ -72,15 +69,16 @@ const CreateHabit = ({userId}:propsUser) =>  {
 
                     </div>
                 </div>
-                <div className='conteiner__createHabit-button-create'>
-                    <button onClick={() => {
+                <div className={style.conteiner__createHabit_button_create}>
+                    <span 
+                        onClick={() => {
                         created()
                         setDate('')
                         setHabit('')
                         setTime('')
                         }}>
                         Created
-                    </button>
+                    </span>
                 </div>
             </div>
         </div>

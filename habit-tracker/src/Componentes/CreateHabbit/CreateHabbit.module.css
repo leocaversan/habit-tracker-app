@@ -1,0 +1,179 @@
+@media (min-width: 400px) {
+
+    .conteiner__createHabit{
+        margin-top:2rem;
+        margin-left:2rem;
+        width:100vh;
+        height:100vh;
+    }
+    .conteiner__createHabit_button_back{
+        background-color:#fff;
+        height:2.5rem;
+        width:2.5rem;
+        border-radius:50%;
+    }
+    .conteiner__createHabit_button_back > button{
+        background-color:transparent;
+        border:none;
+    }
+    .conteiner__createHabit_button_back > button > img{
+        width:2rem;
+        height:2rem;
+        border-radius:50%;
+    
+    }
+    .conteiner__createHabit-description{
+        margin-top:2rem;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:2rem;
+    }
+    .conteiner__createHabit_body{
+        display:flex;
+        flex-direction:row;
+        height: 100%;
+    }
+    .conteiner__createHabit_content_input{
+        height:100%;
+        width:50%;
+        display:flex;
+        flex-direction:column;
+    }
+    .conteiner__createHabit_input_conteiner{
+        margin-top:2rem;
+    }
+    .conteiner__createHabit_input_conteiner > div {
+        display:flex;
+        flex-direction:row;
+        margin-top:.5rem;
+    }
+    .conteiner__createHabit_input_conteiner > div > img{
+        width:2rem;
+        height:2rem;
+        border-radius:50%;
+        margin-right:.5rem;
+    }
+    .conteiner__createHabit_input_conteiner > div > p{
+        font-size:1.3rem;
+    }
+    .conteiner__createHabit_input_conteiner > div > input{
+        background-color: #010101;
+        height: 2rem;
+        width: 80%;
+        color: white;
+        border: none;
+        border-radius:.3rem;
+    }
+    
+    .conteiner__createHabit_button_create{
+        height:100%;
+        width:50%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .conteiner__createHabit_button_create > button{
+        height:3rem;
+        width:50%;
+        border:none;
+        border-radius:.5rem;
+        background-color: #d71da2;
+        color: #fff;
+        font-size:1.3rem;
+    }
+    .conteiner__createHabit_button_create > button:active{
+        background-color: #e864bd;
+    }
+}
+@media (max-width: 400px) {
+
+    .conteiner__createHabit{
+        margin-top:2rem;
+        width:100%;
+    }
+    .conteiner__createHabit_description {
+        font-weight:bold;
+        font-size:1.5rem;
+    }
+    .conteiner__createHabit_button_back{
+        background-color:#fff;
+        height:2.5rem;
+        width:2.5rem;
+        border-radius:50%;
+    }
+    .conteiner__createHabit_button_back > button{
+        background-color:transparent;
+        border:none;
+    }
+    .conteiner__createHabit_button_back > button > img{
+        width:2rem;
+        height:2rem;
+        border-radius:50%;
+    
+    }
+    .conteiner__createHabit-description{
+        margin-top:2rem;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:2rem;
+    }
+    .conteiner__createHabit_body{
+        display:flex;
+        flex-direction:column;
+        height: 100%;
+        width: 100%;
+    }
+    .conteiner__createHabit_content_input{
+        height:100%;
+        display:flex;
+        flex-direction:column;
+    }
+    .conteiner__createHabit_input_conteiner{
+        margin-top:2rem;
+        width:100%;
+    }
+    .conteiner__createHabit_input_conteiner > div {
+        display:flex;
+        flex-direction:row;
+        margin-top:.5rem;
+    }
+    .conteiner__createHabit_input_conteiner > div > img{
+        width:2rem;
+        height:2rem;
+        border-radius:50%;
+        margin-right:.5rem;
+    }
+    .conteiner__createHabit_input_conteiner > div > p{
+        font-size:1.3rem;
+    }
+    .conteiner__createHabit_input_conteiner > div > input{
+        background-color: #010101;
+        height: 2rem;
+        width: 80%;
+        color: white;
+        border: none;
+        border-radius:.3rem;
+    }
+    
+    .conteiner__createHabit_button_create{
+        height:100%;
+        width:50%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .conteiner__createHabit_button_create > span{
+        margin-top:2rem;
+        padding: .6rem;
+        border:none;
+        border-radius:.5rem;
+        background-color: #d71da2;
+        color: #fff;
+        font-size:1.3rem;
+    }
+    .conteiner__createHabit_button_create > button:active{
+        background-color: #e864bd;
+    }
+}

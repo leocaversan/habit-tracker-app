@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import UserContext, { User, UserContextType } from './auth';
 
 interface UserProviderProps {
@@ -6,10 +6,10 @@ interface UserProviderProps {
 }
 
 const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
-    
+
     const [user, setUser] = useState<User | null>(null);
     const [authenticated, setAuthenticated] = useState<boolean>(false);
-    
+
     const login = (userData: User) => {
         setUser(userData);
         localStorage.setItem('user', JSON.stringify(userData))
