@@ -1,0 +1,23 @@
+version: '3.0'
+services:
+  habitTracerMongodb:
+    image: mongo:latest
+    container_name: mongodb_instance
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: your_username
+      MONGO_INITDB_ROOT_PASSWORD: your_password
+  habitTracerService:
+    build:  
+    context: .
+    container_name: node_app_container
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/usr/src/node_app
+      

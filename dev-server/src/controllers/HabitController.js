@@ -58,7 +58,6 @@ class HabitController {
                 habit: habit,
                 userId: userId
             });
-            console.log(user);
             
             if (user) {
                 await user.remove();

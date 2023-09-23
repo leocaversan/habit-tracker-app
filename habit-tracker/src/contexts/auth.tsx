@@ -6,7 +6,6 @@ export interface User {
         password: string,
     },
     token: string,
-    // Adicione outras propriedades do usuário, se necessário
 }
 
 export interface UserContextType {
